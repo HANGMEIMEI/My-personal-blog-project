@@ -87,7 +87,14 @@ lvhang
 lvhang
 lvhang
 lvhang
-* @Last Modified time: 2020-11-24 23:32:49
+lvhang
+lvhang
+lvhang
+lvhang
+lvhang
+lvhang
+lvhang
+* @Last Modified time: 2020-11-25 11:15:02
 */
 // 要想创建网站服务器， 必须先引入express框架！
 const express = require('express');
@@ -109,7 +116,7 @@ app.set('view engine', 'art');
 // 当渲染后缀为art 的模板时 所使用的模板引擎是什么？!
 // express 支持使用多种模板
 // 1 第一个参数就是模板后缀
-// 2 第二个参数[回调函数]就是你当前用的模板
+// 2 第二个参数就是你当前用的模板的名称
 app.engine('art', require('express-art-template'))
 
 // 开放静态资源文件
