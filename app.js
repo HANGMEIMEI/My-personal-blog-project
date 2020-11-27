@@ -96,7 +96,10 @@ lvhang
 lvhang
 lvhang
 lvhang
-* @Last Modified time: 2020-11-27 08:39:27
+lvhang
+lvhang
+lvhang
+* @Last Modified time: 2020-11-27 17:18:05
 */
 // 要想创建网站服务器， 必须先引入express框架！
 const express = require('express');
@@ -106,6 +109,12 @@ const path = require('path');
 // 创建网站服务器！ 
 
 const app = express();
+
+// 数据库连接
+require('./model/connect')
+
+// 测试创建用户 但是实际上创建用户应该在路由当中完成！
+// require('./model/user')
 
 // 告诉express框架模板所在的位置
 // app.set() 就是对express框架的配置
@@ -128,7 +137,7 @@ app.engine('art', require('express-art-template'))
 // 采用绝对路径！
 // path.join(__dirname())
 
-app.use(express.static(path.join(__dirname, 'public'))) 
+app.use(express.static(path.join(__dirname, 'public')))
 console.log(path.join(__dirname, 'public'))
 
 // 导入 home 路由 ; 后缀名可以省掉！这儿我就不省啦！
@@ -137,7 +146,7 @@ const home = require('./route/home.js');
 // 就是你导进来的是社么对象， 就是那个对象
 // 所以这儿就是admin路由对象！
 const admin = require('./route/admin.js');
- 
+
 // 要使两个路由页面生效， 
 // 第一步， 导入两个模块
 // 第二步， 调用即可！
@@ -152,15 +161,5 @@ app.use('/admin', admin)
 //  他必须监听一个端口！，
 //   才能向外提供服务！
 app.listen(3001, () => {
-	console.log('本地网站服务器启动成功， 请访问localhost：3001')
+    console.log('本地网站服务器启动成功， 请访问localhost：3001')
 });
-
-
-
-
-
-
-
-
-
-
