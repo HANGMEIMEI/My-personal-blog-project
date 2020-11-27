@@ -1,61 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+{{extend './common/layout.art'}}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Blog - Content Manager</title>
-    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/base.css">
-</head>
-
-<body>
-	<!-- 头部 -->
-    <div class="header">
-    	<!-- 网站标志 -->
-        <div class="logo fl">
-          黑马程序员 <i>ITHEIMA</i>
-        </div>
-        <!-- /网站标志 -->
-        <!-- 用户信息 -->
-        <div class="info">
-            <div class="profile dropdown fr">
-                <span class="btn dropdown-toggle" data-toggle="dropdown">
-					admin
-					<span class="caret"></span>
-                </span>
-                <ul class="dropdown-menu">
-                    <li><a href="user-edit.html">个人资料</a></li>
-                    <li><a href="#">退出登录</a></li>
-                </ul>
-            </div>
-        </div>
-        <!-- /用户信息 -->
-    </div>
-    <!-- /头部 -->
+{{block 'main'}}
+    <!-- 静态资源的外链文件是由浏览器来解析的
+    他的相对路径是相对浏览器的请求地址的！
+     所以模板资源的外链路径问题需要绝对路径！-->
+    <!-- 下面写的这个路径是由模板引擎来解析的 -->
+    <!-- 子模版的相对路径相对的就是当前文件 因为它是由模板引擎解析的 而不是浏览器！ -->
+	{{include './common/header.art'}}
     <!-- 主体内容 -->
     <div class="content">
-    	<!-- 侧边栏 -->
-        <div class="aside fl">
-            <ul class="menu list-unstyled">
-                <li>
-                    <a class="item active" href="user.html">
-						<span class="glyphicon glyphicon-user"></span>
-						用户管理
-					</a>
-                </li>
-                <li>
-                    <a class="item" href="article.html">
-			  			<span class="glyphicon glyphicon-th-list"></span>
-			  			文章管理
-			  		</a>
-                </li>
-            </ul>
-            <div class="cprt">
-                Powered by <a href="http://www.itheima.com/" target="_blank">黑马程序员</a>
-            </div>
-        </div>
-        <!-- 侧边栏 -->
+    	{{include './common/aside.art'}}
         <div class="main">
         	<!-- 分类标题 -->
             <div class="title">
@@ -154,8 +108,4 @@
         </div>
     </div>
     <!-- /删除确认弹出框 -->
-    <script src="lib/jquery/dist/jquery.min.js"></script>
-    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+ {{/block}}

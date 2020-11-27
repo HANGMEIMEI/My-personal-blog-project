@@ -18,7 +18,8 @@ lvhang
 lvhang
 lvhang
 lvhang
-* @Last Modified time: 2020-11-24 23:34:43
+lvhang
+* @Last Modified time: 2020-11-27 09:02:09
 */
 // 创建博客的管理页面路由@！
 // 创建路由要用到express Router方法！
@@ -42,7 +43,10 @@ admin.get('/login', (req, res) => {
 	// 括号中写模板中的路径！
 	res.render('admin/login')
 })
-
+// 创建用户列表路由
+admin.get('/user', (req, res) => {
+	res.render('admin/user')
+})
 
 // 因为另一个js文件要到路由， 所以我们要把他暴露出去！
 // 将路由对象作为模块成员进行导出!
